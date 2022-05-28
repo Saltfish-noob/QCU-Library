@@ -1,0 +1,7 @@
+edu\qcu\domain\BorrowLog.class
+edu\qcu\domain\Role.class
+edu\qcu\domain\Book.class
+edu\qcu\domain\Category.class
+edu\qcu\domain\SysLog.class
+edu\qcu\domain\Permission.class
+edu\qcu\domain\UserInfo.class
