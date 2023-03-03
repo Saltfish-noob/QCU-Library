@@ -61,7 +61,7 @@ public interface IBookDao {
     @Select("SELECT * FROM books WHERE MATCH (bookName,author) AGAINST (#{search})")
     List<Book> findBookByCondition(String search);
 
-    @Select("SELECT rating FROM ( SELECT id,category,bookname,author,press,`status`,ISBN,image,IFNULL( rating, 0 ) rating FROM books LEFT JOIN ( SELECT bookId, AVG( rating ) AS rating FROM borrowlog GROUP BY( SELECT ISBN FROM books WHERE id = bookId )) AS ratetable ON books.id = ratetable.bookId GROUP BY ISBN ) AS d WHERE ISBN = '9787545521177'")
+    @Select("SELECT rating FROM ( SELECT id,category,bookname,author,press,`status`,ISBN,image,IFNULL( rating, 0 ) rating FROM books LEFT JOIN ( SELECT bookId, AVG( rating ) AS rating FROM borrowlog GROUP BY( SELECT ISBN FROM books WHERE id = bookId )) AS ratetable ON books.id = ratetable.bookId GROUP BY ISBN ) AS d WHERE ISBN=#{isbn}")
     Float findRatingByISBN(String isbn);
 
     @Select("select COUNT(*) from books where ISBN=#{isbn}")
